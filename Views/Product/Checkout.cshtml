@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewData["Title"] = "Checkout";
+}
+@model List<Product>
+<h1>Checkout</h1>
+<br />
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Price
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>
+                    @product.Name
+                </td>
+                <td>
+                    @product.Price
+                </td>
+            </tr>
+        }
+    <tfoot>
+        <tr>
+            <td align="right">
+                <b>Grand Total:</b>
+            </td>
+            <td>
+                <b> @ViewBag.Total </b>
+            </td>
+ 
+        </tr>
+    </tfoot>
+
+</table>
+

@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@model List<Product>
+<h2>Product Page</h2>
+<br />
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Price
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+    @foreach (var product in Model)
+    {
+        <tr>
+            <td>
+                @product.Name
+            </td>
+            <td>
+                @product.Price
+            </td>
+            <td>
+                <form asp-action="AddToCart" asp-route-id="@product.ProductId">
+                    <button class="btn-success justify-content-center" type="submit">Add to Cart</button>
+                </form>
+            </td>
+ 
+        </tr>
+    }
+</table>
+<br />
+<form>
+    <div align="right">
+        <input type="submit" value="Checkout" asp-controller="Product" asp-action="Checkout" class="btn btn-primary" />
+    </div>
+</form>
+
+
+
+
